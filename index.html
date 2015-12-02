@@ -1,0 +1,27 @@
+<html ng-app="lampumerah">
+	<head>
+		<link rel="stylesheet" href="assets/css/bootstrap.css">
+		<link rel="stylesheet" href="assets/css/materialadmin.css">
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+		<link rel="stylesheet" href="assets/css/lampumerah.css">
+
+		<title>Lampu Lalu Lintas</title>
+
+		<script type="text/javascript" src="assets/js/angular/angular.min.js"></script>
+		<script type="text/javascript" src="assets/js/lampumerah.js"></script>
+		<script type="text/javascript" src="assets/js/jquery/jquery-1.11.2.min.js"></script>
+	</head>
+	<body ng-controller="lampuMerahCtrl">
+		<div ng-repeat="lamp in lamps" class="lamp-box lamp-{{lamp.position}}">
+			<div class="lamp red" ng-class="{'active': lamp.status == 'red'}"></div>
+			<div class="lamp yellow" ng-class="{'active': lamp.status == 'yellow'}"></div>
+			<div class="lamp green" ng-class="{'active': lamp.status == 'green'}"></div>
+		</div>
+		<div ng-repeat="lamp in lamps" class="counter counter-{{lamp.position}} counter-{{lamp.status}}" >
+			<p>{{lamp.timer | counterValue}}</p>
+		</div>
+		<button id="btn-stop" class="btn btn-warning btn-start btn-lg" ng-click="stop()"><i class="fa fa-pause"></i></button>
+		<button id="btn-start" class="btn btn-success btn-start btn-lg" ng-click="start()"><i class="fa fa-play"></i></button>
+		
+	</body>
+</html>
