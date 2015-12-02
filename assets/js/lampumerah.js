@@ -3,7 +3,7 @@ var lampumerah = angular.module('lampumerah', []);
 lampumerah.controller('lampuMerahCtrl', function($scope, $interval){
 
 	$scope.lamps = [];
-	DefaultTimer = 3;
+	DefaultTimer = 20;
 	var LampPosition = ['top','right','bottom','left'];
 	var countdown;
 	var started = false;
